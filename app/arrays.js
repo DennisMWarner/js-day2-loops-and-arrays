@@ -22,14 +22,20 @@ function rearranger(arr) {
 // output: 42
 
 function largestNum(arr) {
+  let dupes = {};
   let maxNum = arr[0];
   arr.forEach(num => {
     if (num > maxNum) {
       maxNum = num;
-    } else {
     }
-    console.log(maxNum);
   });
+  dupes.maxNum = 0;
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] == maxNum) {
+      dupes.maxNum += 1;
+    }
+  }
+  console.log(maxNum, dupes);
   return maxNum;
 }
 
@@ -125,7 +131,16 @@ let staff = [
   { id: 999, name: "Timma" }
 ];
 
-function findById(id) {}
+function findById(id) {
+  let thisId = id;
+  let empFound = staff.find(emp => emp.id == thisId);
+  //console.log(empFound);
+  if (!empFound) {
+    return { error: "No user with that id." };
+  } else {
+    return empFound;
+  }
+}
 
 // ------------------------------------------
 
@@ -152,4 +167,15 @@ let theBand = {
   ]
 };
 
-function bandMemberDetails(name) {}
+function bandMemberDetails(name) {
+  let memberName = name;
+  let inTheBand = theBand.members.find(
+    member => member.name.toLowerCase() == memberName.toLowerCase()
+  );
+  //console.log(inTheBand);
+  if (inTheBand) {
+    return (
+      inTheBand.name + " is in the band and plays the " + inTheBand.instrument
+    );
+  }
+}
