@@ -4,12 +4,14 @@
 // output: 20
 
 function rangeTotal(n1, n2) {
-
+  let totalSum = 0;
+  for (let index = n1; index <= n2; index++) {
+    totalSum += index;
+  }
+  return totalSum;
 }
 
-
 // ------------------------------------------
-
 
 // 2. Within the factorials function, write a loop that begins at 1 and multiplies every consecutive
 // number up to and including the given number(num). Return the total after the loop completes.
@@ -19,12 +21,14 @@ function rangeTotal(n1, n2) {
 // 1*2*3*4 = 24
 
 function factorials(num) {
-
+  let totalProduct = 1;
+  for (let i = 1; i <= num; i++) {
+    totalProduct *= i;
+  }
+  return totalProduct;
 }
 
-
 // ------------------------------------------
-
 
 // 3. Write a function that will take in a starting number, ending number, and a divisor. Iterate
 // over the range of the numbers and rtuen how many numbers can be divided by the divisor.
@@ -33,5 +37,11 @@ function factorials(num) {
 // output: 2
 
 function rangeDivisor(start, end, divisor) {
-
+  let numberOfDivisible = 0;
+  for (let index = start; index <= end; index++) {
+    if (index % divisor == 0) {
+      numberOfDivisible++;
+    }
+  }
+  return numberOfDivisible;
 }
